@@ -1,0 +1,123 @@
+/*
+ N   N   AAAAA  H   H  III  DDDD
+ NN  N  A     A H   H   I   D   D
+ N N N  AAAAAAA HHHHH   I   D    D
+ N  NN  A     A H   H   I   D   D
+ N   N  A     A H   H  III  DDDD
+*/
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define mone cout << "-1\n"
+#define ans cout << result << "\n"
+#define countt cout << cnt << "\n"
+#define vl vector<long long>
+#define vi vector<int>
+#define vs vector<string>
+#define pb(x) push_back(x) 
+#define foriton(n) for (long long i = 0; i < n; i++)
+#define scan(a, n) for (long long i = 0; i < n; i++) cin >> a[i];
+#define print(a, n) for (long long i = 0; i < n; i++) cout << a[i] <<" ";
+#define forntoi(n) for (long long i = n - 1; i >= 0; i--)
+#define all(a) a.begin(), a.end()
+#define countn(a,b) count(a.begin(), a.end(), b)
+#define en cout << "\n"
+#define MOD 998244353
+#define ll long long
+const int MAX = 1e5 + 5;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+        
+    ll t;
+    cin>>t;
+
+    while(t--){
+        string s;
+        cin>>s;
+        ll left=0, right=0, star=0;
+        ll len = s.size();
+        
+        bool isInfi = false;
+        foriton(len){
+            if(s[i]=='<'){
+                left++;
+            } else{
+                break;
+            }
+
+        }
+        forntoi(len){
+            if(s[i]=='>'){
+                right++;
+            } else{
+                break;
+            }
+        }
+
+        // if(isInfi){
+        //     cout<<-1<<endl;
+        //     continue;
+        // }
+
+        // if(len==1){
+        //     cout<<1<<endl;
+        //     continue;
+        // }
+
+        // if(star==len){
+        //     cout<<-1<<endl;
+        //     continue;
+        // }
+
+
+        // foriton(len-1){
+        //     if(s[i]==s[i+1]&&s[i]=='*'){
+        //         isInfi = true;
+        //         break;
+        //     }
+        // }
+
+        // if(isInfi){
+        //     cout<<-1<<endl;
+        //     continue;
+        // }
+
+        // ll idx = len-1;
+        // ll pos1, pos2;
+        // foriton(len){
+        //     if(s[i]=='>'){
+        //         pos1=i;
+        //         break;
+        //     }
+        // }
+
+        // forntoi(len){
+        //     if(s[i]=='<'){
+        //         pos2=i;
+        //         break;
+        //     }
+        // }
+
+        // if(left!=0 && right!=0 && pos1<pos2){
+        //     cout<<-1<<endl;
+        //     continue;
+        // }
+        // if(star==0)
+        // cout<<max(left, right)<<endl;
+        // else 
+        // cout<<len<<endl;
+
+        if(left+right==len){
+            cout<<max(left, right)<<endl;
+
+        } else if(left+right==len-1){
+            cout<<max(left, right)+1<<endl;
+        } else{
+            cout<<-1<<endl;
+        }
+    }
+}
