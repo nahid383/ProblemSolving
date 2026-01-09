@@ -1,0 +1,84 @@
+/*
+ N   N   AAAAA  H   H  III  DDDD
+ NN  N  A     A H   H   I   D   D
+ N N N  AAAAAAA HHHHH   I   D    D
+ N  NN  A     A H   H   I   D   D
+ N   N  A     A H   H  III  DDDD
+*/
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define yes cout << "YES\n"
+#define no cout << "NO\n"
+#define mone cout << "-1\n"
+#define ans cout << result << "\n"
+#define countt cout << cnt << "\n"
+#define vl vector<long long>
+#define vi vector<int>
+#define vs vector<string>
+#define pb(x) push_back(x) 
+#define foriton(n) for (long long i = 0; i < n; i++)
+#define scan(a, n) for (long long i = 0; i < n; i++) cin >> a[i];
+#define print(a, n) for (long long i = 0; i < n; i++) cout << a[i] <<" ";
+#define forntoi for (long long i = n - 1; i >= 0; i = i --)
+#define all(a) a.begin(), a.end()
+#define countn(a,b) count(a.begin(), a.end(), b)
+#define en cout << "\n"
+#define MOD 998244353
+#define ll long long
+const int MAX = 1e5 + 5;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+        
+    ll t;
+    cin>>t;
+    while(t--){
+        ll x0, n;
+        cin>>x0>>n;
+        // ll pos = x0;
+        // ll m=n;
+        // for(ll i=1; i<=n; i++){
+        //     if(m%2==0){
+        //         pos+=m;
+        //     } else{
+        //         pos-=m;
+        //     }
+        //     m++;
+        // }
+
+        // ll odd = (n+1)/2;
+        // ll even = n/2;
+
+        // ll pos = x0 - (odd*odd)+(even*(even+1));
+
+        // cout<<pos<<endl;
+
+        if(n==0){
+            cout<<x0<<endl;
+            continue;
+        }
+
+        ll d = 0;
+        ll r = n%4;
+
+         if(r==1){
+            d=-n;
+        } else if(r==2){
+            d = 1;
+        } else if(r==3){
+            d = n+1;
+        }
+
+
+        if(x0%2==0){
+            cout<<x0+d<<endl;
+        } else{
+            cout<<x0-d<<endl;
+        }
+
+
+
+    }
+}
