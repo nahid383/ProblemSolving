@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    int c=1;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<long long> a(n);
+        int s = 0;
+        for (int i = 0; i < n; i++)
+        {
+            cin>>a[i];
+            s^=a[i];
+        }
+        if(s==0){
+            cout<<"Case "<<c<<": "<<0<<endl;
+            c++;
+            continue;
+        }
+
+        int cnt = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if((a[i]^s)<a[i]){
+                cnt++;
+            }
+        }
+        
+        cout<<"Case "<<c<<": "<<cnt<<endl;
+        c++;
+
+        
+    }
+}

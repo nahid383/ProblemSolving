@@ -18,7 +18,7 @@ using namespace std;
 #define vs vector<string>
 #define foriton(n) for (long long i = 0; i < n; i++)
 #define scan(a, n) for (long long i = 0; i < n; i++) cin >> a[i];
-#define forntoi for (long long i = n - 1; i >= 0; i = i - 2)
+#define forntoi(n) for (long long i = n - 1; i >= 0; i--)
 #define sorted(a) sort(a.begin(), a.end())
 #define countn(a,b) count(a.begin(), a.end(), b)
 #define en cout << "\n"
@@ -30,56 +30,62 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
         
-    int t;
-    cin>>t;
-    while(t--){
-        int n;
-        cin>>n;
-        vl a(n);
-        scan(a, n);
+    string s;
+    cin>>s;
+    int len = s.length();
+    //1st check
+    vector<char> sub;
+    foriton(len){
+        sub.push_back(s[i]);
 
-        ll b=0;
-        bool first = true;
-        bool alZero=true;
-        if(n==1 && a[0]==1){
-            cout<<1<<endl;
-            continue;
-        }
-        foriton(n){
-            if(a[i]!=0){
-                alZero=false;
-                if(a[i]>0){
-                if(first){
-                    b=a[i];
-                    first=false;
-                } else{
-                    b=b&a[i];
-                }
-            }
-            }
-            
-        }
-        if(alZero){
-            foriton(n){
-                cout<<i+1<<" ";
-            }
-            en;
-            continue;
-        }
-        ll cnt=0;
-        foriton(n){
-            if(a[i]==b){
-                cnt++;
-            }
-        }
-
-        for(ll i=1; i<=cnt; i++){
-            if(cnt%i==0){
-                cout<<i<<" ";
-            }
-        }
-        en;
-
-        
     }
+    bool ab = false;
+    bool ba = false;
+    foriton(len-1){
+        if(s[i]=='A' && s[i+1]=='B'){
+            sub.erase(sub.begin()+i, sub.begin()+i+2);
+            // sub.erase(sub.begin()+i);
+            ab=true;
+            break;
+        } 
+    }
+    foriton(sub.size()-1){
+        if(sub[i]=='B' && sub[i+1]=='A'){
+            ba=true;
+            break;
+        }
+    }
+    if(ab && ba){
+        yes;
+        return 0;
+    }
+
+    //2nd check
+    vector<char> sub2;
+    foriton(len){
+        sub2.push_back(s[i]);
+    }
+    bool ab1 = false;
+    bool ba2 = false;
+    foriton(len-1){
+        if(s[i]=='B' && s[i+1]=='A'){
+            sub2.erase(sub2.begin()+i, sub2.begin()+i+2);
+            // sub.erase(sub.begin()+i);
+            ba2=true;
+            break;
+        } 
+    }
+    foriton(sub2.size()-1){
+        if(sub[i]=='A' && sub[i+1]=='B'){
+            ab1=true;
+            break;
+        }
+    }
+
+    if((ab1 && ba2)){
+        yes;
+        return 0;
+    } 
+    no;
+    // cout<<sub.size()<<endl;
 }

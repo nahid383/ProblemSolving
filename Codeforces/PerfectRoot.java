@@ -1,0 +1,23 @@
+
+import java.util.Scanner;
+
+public class PerfectRoot {
+    public static void main(String[] args){
+        Scanner sc= new Scanner(System.in);
+
+        int t = sc.nextInt();
+        while(t-->0){
+            int n = sc.nextInt();
+
+            for (int i = 99; ; i--) {
+                if(n==0){
+                    break;
+                }
+                System.out.print(i + " ");
+                n--;
+            }
+            System.out.println();
+        }
+
+    }
+}
